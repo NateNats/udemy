@@ -1,0 +1,36 @@
+package ComputerFactory;
+
+public class PersonalComputer extends Product{
+    private ComputerCase computerCase;
+    private Monitor monitor;
+    private Motherboard motherboard;
+
+    public PersonalComputer(String model, String manufacturer, ComputerCase computerCase,
+                            Monitor monitor, Motherboard motherboard) {
+        super(model, manufacturer);
+        this.computerCase = computerCase;
+        this.monitor = monitor;
+        this.motherboard = motherboard;
+    }
+
+    private void logo(){
+        monitor.drawPixelAt(1200, 500, "Red");
+    }
+
+    public void pressUp(){
+        computerCase.pressPowerButton();
+        logo();
+    }
+
+//    public ComputerCase getComputerCase() {
+//        return computerCase;
+//    }
+//
+//    public Monitor getMonitor() {
+//        return monitor;
+//    }
+//
+//    public Motherboard getMotherboard() {
+//        return motherboard;
+//    }
+}
