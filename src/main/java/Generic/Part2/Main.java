@@ -2,6 +2,7 @@ package Generic.Part2;
 
 interface Player {
     String name();
+    String position();
 } //player
 
 record BaseballPlayer(String name, String position) implements Player {}
@@ -10,10 +11,15 @@ record volleyballPlayer(String name, String position) implements Player {}
 
 public class Main {
     public static void main(String[] args) {
-        var philly = new Affiliation("city", "Philadelphia", "PA");
+        Affiliation philly = new Affiliation("city", "Philadelphia", "PA");
     Team<BaseballPlayer, Affiliation> bt1= new Team<>("Philadelphia Phillies");
-    Team<BaseballPlayer, String> bt2 = new Team<>("Houston Astros");
-    scoreResult(bt1, 10, bt2, 8);
+    bt1.addTeamMember(new BaseballPlayer("Nicolaus", "infielder"));
+    bt1.addTeamMember(new BaseballPlayer("Bernard", "outfielder"));
+    bt1.listTeamMembers();
+
+
+    Team<BaseballPlayer, Affiliation> bt2 = new Team<>("Houston Astros");
+//    scoreResult(bt1, 10, bt2, 8);
 
     Team<footballPlayer, Affiliation> ft1 = new Team<>("Adelaide Crows");
     Team<footballPlayer, Affiliation> ft2 = new Team<>("Adelaide Storm");

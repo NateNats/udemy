@@ -9,6 +9,7 @@ record Affiliation(String name, String type, String countryCode) {
         return name + "(" + type + " in " + countryCode + ")";
     }
 }
+
 public class Team<T extends Player, S extends Affiliation> {
     private String teamName;
     private List<T> teamMembers = new ArrayList<>();
@@ -35,8 +36,8 @@ public class Team<T extends Player, S extends Affiliation> {
     public void listTeamMembers() {
         System.out.print(teamName + " Roster: ");
         System.out.println((affiliation == null ? "" : " AFFILIATION: " + affiliation));
-        for (T t: teamMembers){
-            System.out.println(t.name());
+        for (T player: teamMembers){
+            System.out.println(player.name() + ", " + player.position());
         }
     }
 
